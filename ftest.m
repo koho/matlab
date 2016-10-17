@@ -1,8 +1,8 @@
 function [F p] = ftest(x, y, tail)
-x=x(:);
-y=y(:);
-n1=length(x);
-n2=length(y);
+x = x(:);
+y = y(:);
+n1 = length(x);
+n2 = length(y);
 F = var(x)/var(y);
 switch tail
     case -1
