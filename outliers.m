@@ -1,4 +1,4 @@
-function [y yd] = rds(x,op,alpha)
+function [y yd] = outliers(x,op,alpha)
 x=x(:);
 y=x;yd=[];
 if nargin < 2
