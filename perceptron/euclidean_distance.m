@@ -1,0 +1,3 @@
+function [distances] = euclidean_distance(A)
+distances = sqrt((repmat(A(1, :), size(A, 2), 1)' - repmat(A(1, :), size(A, 2), 1)).^2 + ...
+    (repmat(A(2, :), size(A, 2), 1)' - repmat(A(2, :), size(A, 2), 1)).^2);

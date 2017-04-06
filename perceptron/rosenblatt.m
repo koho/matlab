@@ -13,6 +13,8 @@ function [W, WS, E] = rosenblatt(X, T, eta, varargin)
 % WS - A weight matrix whose rows are weight vectors in each iteration
 % E  - A error vector
 
+%% =======================================================
+
 % Defaults
 if nargin < 4, epochs = Inf; else epochs = varargin{1}; end
 if nargin < 5, inst = 0; else inst = varargin{2}; end
@@ -81,6 +83,7 @@ end
 if iter > epochs
     disp('Maximum epoch reached.');
 end
+end
 
 function [] = plotdecision(W, X, T, epoch)
 T = logical(T);
@@ -115,6 +118,7 @@ title('Perceptron');
 marker = strsplit(num2str(unique(T')));
 legend(marker{:});
 text(0.1, 0.9, ['epoch: ', int2str(epoch)], 'VerticalAlignment', 'cap', 'HorizontalAlignment', 'center', 'Units', 'normalized');
+end
 
 function [] = ploterror(E)
 subplot(3, 1, 2);
@@ -125,3 +129,4 @@ subplot(3, 1, 3);
 plot(E(:, 2), 'r-o', 'LineWidth', 1, 'MarkerFaceColor', 'r');
 xlabel('Epoch'), ylabel('Mean Absolute Error (mae)');
 title('Performance');
+end

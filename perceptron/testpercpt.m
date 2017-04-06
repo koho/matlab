@@ -56,7 +56,8 @@ function [net] = percpt_tool(P, T, S)
 % Obsoleted in R2010b
 net = newp(S, 1);
 % net = perceptron;
-net.trainParam.epochs = 200;
+net.trainParam.epochs = 2000;
+net.trainFcn = 'trainb';
 net = train(net, P, T);
 Y = sim(net, P);
 plotpv(P, Y);

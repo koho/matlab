@@ -1,0 +1,3 @@
+function [dist] = mahala(X)
+dist = sqrt(sum((X - repmat(mean(X, 2), 1, size(X, 2)))' / cov(X') ...
+    .* (X - repmat(mean(X, 2), 1, size(X, 2)))', 2));
