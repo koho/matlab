@@ -9,12 +9,12 @@ nodes = cell(1);
 while size(small, 1) < size(large, 1)
     q = q + 1;
     ind = randperm(size(large, 1), size(small, 1));
-    classtree = fitensemble(x([large(ind); small],:), y([large(ind); small]),'AdaBoostM1',100,'Tree');
+    classtree = fitensemble(x([large(ind) small],:), y([large(ind) small]),'AdaBoostM1',100,'Tree');
     p = predict(classtree, x(large,:));
     large(p == y(large)) = [];
     nodes{q} = classtree;
 end
-nodes{q + 1} = fitensemble(x([large; small],:), y([large; small]), 'AdaBoostM1',100,'Tree');
+nodes{q + 1} = fitensemble(x([large small],:), y([large small]), 'AdaBoostM1',100,'Tree');
 p = zeros(size(test, 1), q + 1);
 for i = 1:(q + 1)
     p(:,i) = predict(nodes{i}, test);
