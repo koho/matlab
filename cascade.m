@@ -21,3 +21,4 @@ for i = 1:(q + 1)
 end
 plabels = repmat(labels(order(2)), size(test, 1), 1);
 plabels(all(p == labels(order(1)), 2)) = labels(order(1));
+end
