@@ -1,7 +1,7 @@
 function [plabels] = cascade(x, y, test)
 labels = unique(y);
-sizes = [sum(y == labels(1)) sum(y == labels(2))];
-[~,order] = sort(sizes);
+sizes = [sum(y == labels(1)), sum(y == labels(2))];
+[~, order] = sort(sizes);
 large = find(y == labels(order(2)));
 small = find(y == labels(order(1)));
 q = 0;
